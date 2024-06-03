@@ -1,7 +1,7 @@
 
-# Work Report
+# SNAKE SOLVER - FINAL PROJECT
 
-## Name: <ins> your name goes here </ins>
+## Name: <ins> QUEENCY TAN </ins>
 
 ## Features:
 
