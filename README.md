@@ -3,10 +3,10 @@
 
 ## Name: <ins> QUEENCY TAN </ins>
 
-## Features:
+## Showcase:
 
-- Not Implemented:
-  - what features have been implemented
+https://github.com/barkeshli-CS066-classroom/99-final-project-snake-solver-QueencyT/assets/122432408/b38922fa-058f-4dec-9aef-afa2dfbbf461
+
 
 <br><br>
 
