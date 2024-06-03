@@ -10,6 +10,11 @@ https://github.com/barkeshli-CS066-classroom/99-final-project-snake-solver-Queen
 
 <br><br>
 
+## FULL PRESENTATION VIDEO: 
+  - [insert link here once made]
+    
+<br><br>
+
 ## LIST OF FUNCTIONS:
 ```
 add_adj_matrix PROC 
@@ -51,11 +56,6 @@ check_path ENDP
 
 ```
 
-
-<br><br>
-
-## FULL PRESENTATION VIDEO: 
-  - [insert link here once made]
 
 <br><br>
 
