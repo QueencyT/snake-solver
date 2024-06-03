@@ -34,7 +34,7 @@ add_adj_matrix ENDP
 ```
 
 check_path PROC
-    ; purpose: function used to check whether the test path is valid or not. If invalid, it call recaculate_path
+    ; purpose: function used to check whether the test path is valid or not. If invalid, call recaculate_path
     ; args: no args
     ; affect: no flags or registers affected
     ; return: modifies the found path arr
