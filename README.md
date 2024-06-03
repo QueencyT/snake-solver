@@ -10,8 +10,28 @@ https://github.com/barkeshli-CS066-classroom/99-final-project-snake-solver-Queen
 
 <br><br>
 
-- Implemented:
-  - what has been implemented
+- LIST OF FUNCTIONS:
+add_adj_matrix PROC 
+    ; purpose: function used to represent snakes as an invalid vertex in adjacency matrix
+    ; args: assumes the offset of the snake position array has been passed into esi
+    ; affect: no flags or registers affected
+    ; return: modifies adjacency matrix 
+        pushad 
+        movzx ecx, snakeLength 
+          L1:
+              mov dl, [esi]
+              mov dh, [esi + 1]
+              call cord_to_vert  ; given x and y screen cord in dl and dh --> will turn that screen cord into a vert number, result held in al
+              mov dl, al
+              call turn_off_col  ; given a vert number in dl, will turn off that associated column in the adj matrix
+              add esi, 2 
+          loop L1
+      popad
+    ret
+add_adj_matrix ENDP
+
+
+
 
 <br><br>
 
