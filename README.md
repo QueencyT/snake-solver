@@ -10,7 +10,7 @@ https://github.com/barkeshli-CS066-classroom/99-final-project-snake-solver-Queen
 
 <br><br>
 
-- LIST OF FUNCTIONS:
+## LIST OF FUNCTIONS:
 ```
 add_adj_matrix PROC 
     ; purpose: function used to represent snakes as an invalid vertex in adjacency matrix
