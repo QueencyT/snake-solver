@@ -11,6 +11,7 @@ https://github.com/barkeshli-CS066-classroom/99-final-project-snake-solver-Queen
 <br><br>
 
 - LIST OF FUNCTIONS:
+  '''
 add_adj_matrix PROC 
     ; purpose: function used to represent snakes as an invalid vertex in adjacency matrix
     ; args: assumes the offset of the snake position array has been passed into esi
@@ -28,7 +29,7 @@ add_adj_matrix PROC
           loop L1
       popad
     ret
-add_adj_matrix ENDP
+add_adj_matrix ENDP '''
 
 
 
