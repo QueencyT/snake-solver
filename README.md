@@ -11,7 +11,7 @@ https://github.com/barkeshli-CS066-classroom/99-final-project-snake-solver-Queen
 <br><br>
 
 ## FULL PRESENTATION VIDEO: 
-  - [insert link here once made]
+  - https://youtu.be/OIwKVs11p5E
     
 <br><br>
 
