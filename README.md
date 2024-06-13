@@ -145,44 +145,183 @@ get_last_snake_vert PROC USES esi edx
     ; return: returns vert number in al 
 get_last_snake_vert ENDP
 
-```
-```
+
+update_positions PROC 
+    ; purpose: function to update the snake's positions 
+    ; args: assumes replaced is given the correct value to replace
+    ; affect: none
+    ; return: modifies snake positions arr
+update_positions ENDP 
+
+get_apple_cords PROC
+    ; purpose: function to get random x pos and y pos of apple (apple generation)
+    ; args: none other than knowing what is grid width and grid height
+    ; affect: none
+    ; return: modifies apple x pos and apple y pos
+get_apple_cords ENDP
+
+check_apple PROC
+    ; purpose: function to check if apple has been eaten yet. If so, generate new apple
+    ; args: none other than knowing what is grid width and grid height
+    ; affect: none
+    ; return: increases snakeLength and playerScore by one when apple is eatem 
+check_apple ENDP
+
+get_top_connection PROC 
+    ; purpose: function to get top connection 
+    ; args: assumes vert number that you want to get the top connection of is in vertNum
+    ; affect: none
+    ; return: updates topConnection variable 
+get_top_connection ENDP 
+
+get_bot_connection PROC
+    ; purpose: fuction to get bot connection
+    ; args: assumes vert number that you want to get the bot connection of is in vertNum
+    ; affect: none
+    ; return: updates botConnection variable 
+get_bot_connection ENDP
+
+get_right_connection PROC    ;inc vertNum ; don't do this, might mess it up
+    ; purpose: fuction to get right connection
+    ; args: assumes vert number that you want to get the right connection of is in vertNum
+    ; affect: none
+    ; return: updates rightConnection variable 
+get_right_connection ENDP 
+
+get_left_connection PROC
+    ; purpose: fuction to get left connection
+    ; args: assumes vert number that you want to get the left connection of is in vertNum
+    ; affect: none
+    ; return: updates leftConnection variable 
+get_left_connection ENDP
+
+go_to_position_matrix PROC USES ecx eax edx
+    ; purpose: fuction to go to specific position in matrix 
+    ; args: assumes dh has row and al has col number
+    ; affect: esi register
+    ; return: esi register that has value at that position  
+go_to_position_matrix ENDP
+
+
+initialize_adj_matrix PROC USES eax dx 
+    ; purpose: fuction to go to initialize adj matrix
+    ; args: none other knowing the max number of verts the grid has 
+    ; affect: none
+    ; return: modifies adj matrix 
+initialize_adj_matrix ENDP
+
 add_adj_matrix PROC 
     ; purpose: function used to represent snakes as an invalid vertex in adjacency matrix
     ; args: assumes the offset of the snake position array has been passed into esi
     ; affect: no flags or registers affected
     ; return: modifies adjacency matrix 
-        pushad 
-        movzx ecx, snakeLength 
-          L1:
-              mov dl, [esi]
-              mov dh, [esi + 1]
-              call cord_to_vert  ; given x and y screen cord in dl and dh --> will turn that screen cord into a vert number, result held in al
-              mov dl, al
-              call turn_off_col  ; given a vert number in dl, will turn off that associated column in the adj matrix
-              add esi, 2 
-          loop L1
-      popad
-    ret
 add_adj_matrix ENDP
-```
-```
+
+
+clear_b_array PROC ; assuming the offset is already in esi, ecx has the amount of items to clear, assuming dh is the fill var
+    ; purpose: clears the given arr 
+    ; args: esi has offset of arr, ecx has amount of items to clear, dh has the "fill" variable (0,-1 etc)
+    ; affect: no flags or registers affected
+    ; return: modifies the given arr in esi 
+clear_b_array ENDP
+
+search_arr PROC ; arr in esi, put item you want to search for in dh, if found return truth value in al , size in ecx 
+   ; purpose: searches the given arr for item
+   ; args: esi has offset of arr, ecx has size, dh has the item you want to search for 
+   ; affect: al affected
+   ; return: truth value in al 
+search_arr ENDP
+
+append_arr PROC 
+    ; purpose: appends an item to the end of arr
+    ; args: esi has offset of arr, eax has size, dh has item to append
+    ; affect: eax affected
+    ; return: new increased size in eax
+append_arr ENDP
+
+pop_front PROC
+    ; purpose: clears the given arr 
+    ; args: esi has offset of arr, size in eax
+    ; affect: dl affected 
+    ; return: modifies arr, dl holds popped item
+pop_front ENDP
+
+pop_end PROC ; dh holds what to fill with, and size in eax and arr given in esi  --> update new size with eax
+    ; purpose: clears the given arr 
+    ; args: esi has offset of arr, eax has size, dh has the "fill" variable (0,-1 etc)
+    ; affect: eax affected
+    ; return: modifies the given arr in esi and the eax size
+pop_end ENDP
 
 check_path PROC
     ; purpose: function used to check whether the test path is valid or not. If invalid, call recaculate_path
     ; args: no args
     ; affect: no flags or registers affected
     ; return: modifies the found path arr
-    cmp foundTestPath[0], -1 
-        je invalidPath 
-        jmp validPath
-    invalidPath: 
-        call revert_adj_matrix 
-        call recalculate_path
-        call reset_valid_connections_arr  
-    validPath:  
-    ret
 check_path ENDP
+
+djikstra_algo PROC
+    ; purpose: function used to find the shortest path from a starting vert
+    ; args: start vert in startVert and dest vert in destVert, assumes pathArr and distArr have been updated accordinly
+    ; affect: none 
+    ; return: modifies the path arr and dist arr
+djikstra_algo ENDP
+
+find_path PROC 
+    ; purpose: function used to construct the shortest path between dest and start vert 
+    ; args: dest and start vert passed accordingly, foundPath arr in esi
+    ; affect: no flags or registers affected
+    ; return: modifies the found path arr
+find_path ENDP
+
+recalculate_path PROC 
+    ; purpose: function called to find alternate paths to apple
+    ; args: assumes validConnectionsArr has been updated accordingly with verts adj to head
+    ; affect: none
+    ; return: modifies foundPath arr  
+recalculate_path ENDP
+
+test_path PROC 
+    ; purpose: function called to test the found path and see if its vali, simulates test situation accordingly, 
+    ; args: assumes foundPath arr has been updated with the path you want to test
+    ; affect: none
+    ; return: modifies foundTestPath arr and foundPath arr 
+test_path ENDP
+
+move_func PROC
+    ; purpose: function to move snake, low level function 
+    ; args: assumes esi has been given beforehand --> esi stands for which position to start interpreting at in foundPath
+    ; affect: eax register
+    ; return: none
+move_func ENDP
+
+special_move PROC
+    ; purpose: function to move snake --> but in the specified alternate path found by recalculate not djikstra
+    ; args: none other than a correct foundPath arr 
+    ; affect: none
+    ; return: none
+special_move ENDP
+
+follow_tail PROC  
+    ; purpose: function to follow tail --> in the case no valid alternate path was found and djikstra path was invalid  
+    ; args: none 
+    ; affect: none 
+    ; return: modifies foundPath arr 
+follow_tail ENDP
+
+normal_move PROC  
+    ; purpose: function to move normally 
+    ; args: none other than a correct foundPath arr
+    ; affect: none 
+    ; return: none
+normal_move ENDP
+
+move_decider PROC  
+    ; purpose: function to decide which move function to call (follow tail, special move, or normal move)
+    ; args: none 
+    ; affect: none 
+    ; return: modifies foundPath arr 
+move_decider ENDP
 
 ```
 
