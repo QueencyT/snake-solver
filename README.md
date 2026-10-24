@@ -11,8 +11,7 @@ The solver uses Dijkstra's shortest-path algorithm to identify efficient routes 
 By combining shortest-path calculations with predictive safety checks, the solver is able to minimize unnecessary movement while ensuring the snake's continued survival to obtain more apples.
 
 ## Showcase:
-
-https://github.com/user-attachments/assets/6a65a4fc-0185-46ce-b306-e118c7e0003c
+![Snake Solver Gameplay](snake_solver.gif)
 
 
 <br><br>
