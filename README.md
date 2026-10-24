@@ -1,7 +1,14 @@
 
-# SNAKE SOLVER - FINAL PROJECT
+# SNAKE SOLVER
 
-## Name: <ins> QUEENCY TAN </ins>
+An autonomous Snake game solver developed in x86 Assembly, featuring Dijkstra's shortest-path algorithm and custom simulation-based path validation to reduce the risk of self-trapping.
+
+##Overview 
+Snake Solver is an autonomous Snake game solver developed in x86 Assembly using the Irvine32 library. Its primary objective is to complete the game in the fewest possible moves while avoiding collisions and self-trapping.
+
+The solver uses Dijkstra's shortest-path algorithm to identify efficient routes toward apples. However, because the shortest path does not necessarily guarantee the snake's continued survival, a custom simulation-based path validation algorithm evaluates candidate routes by simulating future movement and checking tail reachability.
+
+By combining shortest-path calculations with predictive safety checks, the solver is able to minimize unnecessary movement while ensuring the snake's continued survival to obtain more apples.
 
 ## Showcase:
 
