@@ -17,7 +17,7 @@ By combining shortest-path calculations, predictive safety checks, and alternati
 ![Snake Solver Gameplay](snake_solver.gif)
 <br><br>
 
-## FULL PRESENTATION VIDEO: 
+## Full presentation video: 
   - https://youtu.be/OIwKVs11p5E 
 <br><br>
 
@@ -31,9 +31,12 @@ By combining shortest-path calculations, predictive safety checks, and alternati
 - **Fallback Navigation:** Uses alternative movement strategies, such as multi-level waypoint-based pathfinding and tail-following, when a direct path is unavailable.
 - **Console-Based Visualization:** Displays the game board, snake, apples, and score.
 
-## Algorithm Design
+<br>
 
-### 1. <u>Graph Representation</u>
+
+# Algorithm Design
+
+### 1. <ins>Graph Representation</ins>
 
 The game board is modeled as a graph using an adjacency matrix.
 
@@ -41,7 +44,7 @@ Each playable cell represents a vertex, with edges connecting horizontally and v
 
 The adjacency matrix is updated to account for the snake's body, treating occupied positions as obstacles during pathfinding.
 
-### 2. <u>Shortest-Path Calculation</u>
+### 2. <ins>Shortest-Path Calculation</ins>
 
 Dijkstra's algorithm calculates the shortest available path from the snake's current position toward an apple.
 
@@ -51,7 +54,7 @@ However, the shortest available path is not necessarily a safe path.
 
 A route can reach an apple without an immediate collision while leaving the snake trapped afterward.
 
-### 3. <u>Simulation-Based Path Validation>/u>
+### 3. <ins>Simulation-Based Path Validation</ins>
 
 To address this limitation, the solver implements a custom validation procedure that evaluates candidate paths before execution.
 
@@ -65,7 +68,7 @@ The validation process involves:
 
 This approach evaluates both immediate path availability and potential future mobility.
 
-### 4. Alternative Navigation - Multi-Level Waypoint-Based Pathfinding
+### 4. <ins>Alternative Navigation - Multi-Level Waypoint-Based Pathfinding</ins>
 
 When the shortest path to an apple fails safety validation, the solver explores alternative routes through intermediate vertices (waypoints). This approach allows the solver to consider longer but potentially safer routes when the shortest path would compromise the snake's future mobility.
 
