@@ -12,7 +12,7 @@ By combining shortest-path calculations with predictive safety checks, the solve
 
 ## Showcase:
 
-https://github.com/barkeshli-CS066-classroom/99-final-project-snake-solver-QueencyT/assets/122432408/b38922fa-058f-4dec-9aef-afa2dfbbf461
+https://github.com/user-attachments/assets/6a65a4fc-0185-46ce-b306-e118c7e0003c
 
 
 <br><br>
