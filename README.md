@@ -28,7 +28,7 @@ By combining shortest-path calculations with predictive safety checks, the solve
 - **Custom Path Validation:** Simulates candidate routes and evaluates future movement possibilities before accepting them.
 - **Tail-Reachability Analysis:** Checks whether the snake can navigate toward its tail after following a proposed path.
 - **Dynamic Obstacle Handling:** Updates the graph representation to account for the snake's changing body positions.
-- **Fallback Navigation:** Uses alternative movement strategies, including tail-following, when a direct path is unavailable.
+- **Fallback Navigation:** Uses alternative movement strategies, such as multi-level waypoint-based pathfinding and tail-following, when a direct path is unavailable.
 - **Console-Based Visualization:** Displays the game board, snake, apples, and score.
 
 ## Algorithm Design
