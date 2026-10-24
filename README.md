@@ -33,7 +33,7 @@ By combining shortest-path calculations, predictive safety checks, and alternati
 
 ## Algorithm Design
 
-### 1. Graph Representation
+### 1. <u>Graph Representation</u>
 
 The game board is modeled as a graph using an adjacency matrix.
 
@@ -41,7 +41,7 @@ Each playable cell represents a vertex, with edges connecting horizontally and v
 
 The adjacency matrix is updated to account for the snake's body, treating occupied positions as obstacles during pathfinding.
 
-### 2. Shortest-Path Calculation
+### 2. <u>Shortest-Path Calculation</u>
 
 Dijkstra's algorithm calculates the shortest available path from the snake's current position toward an apple.
 
@@ -51,7 +51,7 @@ However, the shortest available path is not necessarily a safe path.
 
 A route can reach an apple without an immediate collision while leaving the snake trapped afterward.
 
-### 3. Simulation-Based Path Validation
+### 3. <u>Simulation-Based Path Validation>/u>
 
 To address this limitation, the solver implements a custom validation procedure that evaluates candidate paths before execution.
 
