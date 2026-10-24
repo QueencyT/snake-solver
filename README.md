@@ -99,13 +99,11 @@ Some of the core procedures include:
 
 | Procedure | Responsibility |
 |-----------|----------------|
-| `initialize_adj_matrix` | Constructs the graph's adjacency matrix |
+| `initialize_adj_matrix` | Constructs/updates the graph's adjacency matrix |
 | `djikstra_algo` | Calculates shortest-path information |
 | `travel_test_path` | Simulates movement along a candidate path |
-| `travel_tail_test_path` | Simulates additional movement along a tail-directed path |
 | `test_path` | Coordinates candidate path validation |
 | `follow_tail` | Handles fallback tail-following movement |
-| `move_decider` | Determines which movement strategy to execute |
 
 ## Development Challenges
 
