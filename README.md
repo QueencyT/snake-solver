@@ -1,24 +1,24 @@
 
-# SNAKE SOLVER
+# Snake Solver
 
-An autonomous Snake game solver developed in x86 Assembly, featuring Dijkstra's shortest-path algorithm and custom simulation-based path validation to reduce the risk of self-trapping.
+An autonomous Snake solver designed to complete the game in as few moves as possible while avoiding self-trapping. The solver combines Dijkstra's shortest-path algorithm with custom simulation-based validation and multi-level waypoint exploration to identify efficient, safe routes. 
 
 ## Overview 
-Snake Solver is an autonomous Snake game solver developed in x86 Assembly using the Irvine32 library. Its primary objective is to complete the game in the fewest possible moves while avoiding collisions and self-trapping.
 
-The solver uses Dijkstra's shortest-path algorithm to identify efficient routes toward apples. However, because the shortest path does not necessarily guarantee the snake's continued survival, a custom simulation-based path validation algorithm evaluates candidate routes by simulating future movement and checking tail reachability.
+Snake Solver is an autonomous Snake game solver developed in x86 Assembly using the Irvine32 library. Its primary objective is to complete the game in as few moves as possible while avoiding collisions and self-trapping.
 
-By combining shortest-path calculations with predictive safety checks, the solver is able to minimize unnecessary movement while ensuring the snake's continued survival to obtain more apples.
+The solver uses Dijkstra's shortest-path algorithm to identify efficient routes toward apples. Since the shortest path does not necessarily guarantee the snake's continued survival, a custom simulation-based path validation algorithm evaluates candidate routes by simulating future movement and checking tail reachability.
+
+When the shortest path fails validation, the solver employs multi-level waypoint-based pathfinding to explore alternative routes through intermediate vertices. Each candidate route is evaluated by simulating the path to the waypoint, updating the snake's predicted body configuration, and then calculating and validating the remaining path to the apple. If validation fails, the solver explores additional waypoints. If no valid route to the apple can be found, it falls back to tail-following navigation.
+
+By combining shortest-path calculations, predictive safety checks, and alternative navigation strategies, the solver aims to minimize the number of moves required to complete the game while preserving the snake's ability to survive and continue collecting apples.
 
 ## Showcase:
 ![Snake Solver Gameplay](snake_solver.gif)
-
-
 <br><br>
 
 ## FULL PRESENTATION VIDEO: 
-  - https://youtu.be/OIwKVs11p5E
-    
+  - https://youtu.be/OIwKVs11p5E 
 <br><br>
 
 ## Key Features
@@ -67,7 +67,7 @@ This approach evaluates both immediate path availability and potential future mo
 
 ### 4. Alternative Navigation - Multi-Level Waypoint-Based Pathfinding
 
-When the shortest path to an apple fails safety validation, the solver explores alternative routes through intermediate vertices (waypoints).
+When the shortest path to an apple fails safety validation, the solver explores alternative routes through intermediate vertices (waypoints). This approach allows the solver to consider longer but potentially safer routes when the shortest path would compromise the snake's future mobility.
 
 For each candidate waypoint, the solver simulates the snake's movement, dynamically updating its body positions and reconstructing the graph to reflect the predicted game state. From this updated state, Dijkstra's algorithm calculates a path from the waypoint to the apple. The complete route is then evaluated through simulation-based validation, including tail-reachability checks to assess future mobility and the risk of self-trapping.
 
